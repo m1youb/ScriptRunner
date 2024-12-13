@@ -1,6 +1,7 @@
 import paramiko
 from sys import argv
 
+# Colors to organize the output
 GREEN = "\033[92m"
 YELLOW = "\033[33m"
 CYAN = "\033[36m"
@@ -21,7 +22,7 @@ def is_ip(ip):
                 return True
 
 
-# Determine the hostname/ip of the machine when -i is used:
+# Finding the hostname/ip of the machine when -i is used:
 usage = f'Usage: python {argv[0]} -i <IP> -u "<user>" -p "<pass>" -s "script.txt"'
 
 
@@ -35,7 +36,7 @@ else:
     print(usage)
 
 
-# Determining the username:
+# Finding the username:
 
 if '-u' not in args:
     print('Provide a username: -u "<username"')
@@ -47,7 +48,7 @@ if '-p' not in args:
 else:
     password = args[args.index('-p') + 1]
 
-# Determining commands from the script:
+# Finding the script:
 if '-s' not in args:
     print('Provide the path of the script: -s "<path-to-script>"')
 else:
@@ -59,7 +60,7 @@ else:
 client = paramiko.SSHClient() 
 client.set_missing_host_key_policy(paramiko.AutoAddPolicy()) 
  
-# Connect to the server 
+# Connecting to the server 
 client.connect(hostname, username=username, password=password)
 
 # Executing the commands withing the script
