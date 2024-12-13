@@ -4,4 +4,3 @@ A python script to automate running scripts on hosts without manual login into t
 ```bash
 python3 runner.txt -i 10.10.10.10 -u root -a pass123 -s script.txt
 ```
-[[exp.png]]
